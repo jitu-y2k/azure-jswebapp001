@@ -29,8 +29,4 @@
   <ItemGroup>
     <Folder Include="Migrations\" />
   </ItemGroup>
-  <ItemGroup>
-    <Content Remove="Views\Student\StudentForm.cshtml" />
-    <Content Remove="Views\Student\GetStudents.cshtml" />
-  </ItemGroup>
 </Project>
