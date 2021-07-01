@@ -1,3 +1,15 @@
-﻿@page
+﻿@model IEnumerable<WebApp1.Models.Student>
+
 @{
+    ViewData["Title"] = "Home Page";
 }
+
+<h2>List of students</h2>
+<ul>
+    @foreach (var student in Model)
+    {
+        <li>
+            Student Id : @student.Id, Student Name : @student.Name, Student Age : @student.Age
+        </li>
+    }
+</ul>

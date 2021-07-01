@@ -1,3 +1,51 @@
-﻿@page
+﻿@model WebApp1.Models.Student
 @{
+    Layout = null;
 }
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Student Form</title>
+    <style type="text/css">
+        body {
+            font-family: Arial;
+            font-size: 10pt;
+        }
+
+        .error {
+            color: red;
+        }
+    </style>
+</head>
+<body>
+    @using (@Html.BeginForm("SaveStudent", "Student", FormMethod.Post))
+    {
+        <table>
+            <tr>
+                <td>@Html.LabelFor(m => m.Name)</td>
+                <td>@Html.TextBoxFor(m => m.Name)</td>
+                <td>@Html.ValidationMessageFor(m => m.Name, "", new { @class = "error" })</td>
+            </tr>
+            <tr>
+                <td>@Html.LabelFor(m => m.Age)</td>
+                <td>@Html.TextBoxFor(m => m.Age)</td>
+                <td>@Html.ValidationMessageFor(m => m.Age, "", new { @class = "error" })</td>
+            </tr>
+
+            <tr>
+                <td></td>
+                <td><input type="submit" value="Submit" /></td>
+                <td></td>
+            </tr>
+        </table>
+    }
+    <hr />
+    @if (ViewData.ModelState.IsValid)
+    {
+        @ViewBag.Name;
+    }
+</body>
+</html>
