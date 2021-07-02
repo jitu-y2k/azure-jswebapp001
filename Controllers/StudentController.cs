@@ -30,7 +30,7 @@ namespace WebApp1.Controllers
         public IActionResult NewStudent()
         {
             var student = new Student();
-            return View("StudentForm", student);
+            return View(student);
         }
 
         [HttpPost]
@@ -38,7 +38,7 @@ namespace WebApp1.Controllers
         {
             if (!ModelState.IsValid)
             {
-                return View("StudentForm", student);
+                return View("NewStudent", student);
             }
 
             _context.Students.Add(student);
